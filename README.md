@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Spotify Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was made with [React JS](https://react.dev/), [TypeScript](https://www.typescriptlang.org/) and [HeroIcons](https://heroicons.com/)
 
 ## Available Scripts
 
