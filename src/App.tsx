@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="h-screen flex flex-col text-zinc-300 transition-all">
       <div className="flex flex-1 overflow-hidden">
-        <aside className="w-72 bg-zinc-950 p-1 overflow-y-hidden">
+        <aside className="bg-zinc-950 p-1 overflow-y-hidden" style={{width: 450}}>
           <div id="items" className="flex flex-col">
             <div id="firstPart" className="m-1 flex flex-1 flex-col ">
               <div id="home" className="group p-3 flex flex-column items-center rounded bg-zinc-900">
