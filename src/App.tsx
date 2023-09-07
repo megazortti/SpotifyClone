@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { PlayCircleIcon, HomeIcon, MagnifyingGlassIcon, ArrowSmallRightIcon, ArrowSmallLeftIcon, ArrowPathRoundedSquareIcon, ArrowsRightLeftIcon } from '@heroicons/react/24/solid'
+import AdAlert from './Components/AdAllert';
+
 
 function App() {
   const [inputRange, setInputRange] = useState<number>();
+  const [show, setShow] = useState<boolean>(true);
   let total = '05:13';
+  
   return (
+
     <div className="h-screen flex flex-col text-zinc-300 transition-all">
+      <AdAlert show={show} onPress={()=>{setShow(e=>!e); }} title='Go ahead, resize it!' description='This webpage has an awesome responsivity.' />
       <div className="flex flex-1 overflow-hidden">
         <aside className="bg-zinc-950 p-1 overflow-hidden transition-all w-0 md:w-96 ">
           <div id="items" className="flex flex-col">
@@ -23,7 +29,7 @@ function App() {
             </div>
           </div>
         </aside>
-        <main className="flex-1 p-6 mt-2 mr-2 bg-zinc-900 rounded overflow-y-auto overflow-x-hidden">
+        <main id="main" className="flex-1 p-6 mt-2 mr-2 bg-zinc-900 rounded overflow-y-auto overflow-x-hidden">
           <p className="font-semibold text-3xl hover:text-zinc-200 pb-8">
             Good Night
           </p>
@@ -53,7 +59,7 @@ function App() {
             <div className="pt-4 mb-3">
               <strong className="text-zinc-200 text-2xl ">Made for Victor Mazzotti</strong>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 items-center overflow-hidden">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 overflow-hidden">
               {[...Array(10)].map((i, idx) => {
                 return (
                   <a href="" id="mix">
@@ -61,24 +67,32 @@ function App() {
                       <div className="relative">
                         {idx % 2 == 0 ?
                           <>
-                            <img src="./imgs/luan.jpeg" className='w-full rounded' alt="" />
+                            <div>
+                              <img src="./imgs/luan.jpeg" className='w-full rounded' alt="" />
+                              <PlayCircleIcon title="Reproduzir" className="absolute right-0 bottom-10 w-20 text-green-500/0 transition-all group-hover:text-green-500 group-hover:bottom-20 " />
+                            </div>
                             <strong className="">Daily Mix {idx + 1}</strong>
-                            <p className="text-zinc-500">Luan Santana, Jorge & Mateus, Gustavo Mioto and more</p>
+                            <p className="text-zinc-500 line-clamp-2">Luan Santana, Jorge & Mateus, Gustavo Mioto and more</p>
                           </>
-                          : idx % 3 == 0 ?
+                          : idx % 2 == 0 ?
                             <>
-                              <img src="./imgs/ig.jpeg" className='w-full rounded' alt="" />
+                              <div>
+                                <img src="./imgs/ig.jpeg" className='w-full rounded' alt="" />
+                                <PlayCircleIcon title="Reproduzir" className="absolute right-0 bottom-10 w-20 text-green-500/0 transition-all group-hover:text-green-500 group-hover:bottom-20 " />
+                              </div>
                               <strong className="">Daily Mix {idx + 1}</strong>
-                              <p className="text-zinc-500">Imagine Dragons, Taylor Swift, Mari Fernandez and more</p>
+                              <p className="text-zinc-500 line-clamp-2">Imagine Dragons, Taylor Swift, Mari Fernandez and more</p>
                             </>
                             :
                             <>
-                              <img src="./imgs/coldp.jpeg" className='w-full rounded' alt="" />
+                              <div>
+                                <img src="./imgs/coldp.jpeg" className='w-full rounded' alt="" />
+                                <PlayCircleIcon title="Reproduzir" className="absolute right-0 bottom-10 w-20 text-green-500/0 transition-all group-hover:text-green-500 group-hover:bottom-20 " />
+                              </div>
                               <strong className="">Daily Mix {idx + 1}</strong>
-                              <p className="text-zinc-500">Coldplay, David Guetta, Myley C and more</p>
+                              <p className="text-zinc-500 line-clamp-2">Coldplay, David Guetta, Myley C and more</p>
                             </>}
 
-                        <PlayCircleIcon title="Reproduzir" className="absolute right-1 bottom-1 w-20 text-green-500/0 transition-all group-hover:text-green-500 group-hover:bottom-3 " />
                       </div>
 
 
